@@ -8,17 +8,16 @@ export default function sortScores(filename, n) {
         if (scoreLine) {
             let [ score, ...blob ] = String(scoreLine).split(': ');
             blob = blob.join(': ');
-            console.log(blob);
             try {
                 blob = JSON.parse(blob);
                 if (blob && blob.id) {
                     output.push({ id: blob.id, score: parseInt(score) })
                 }
             } catch (err) {
-                console.log(err);
+                return 2;
             }
         }
     }
-    output = output.sort((a, b) => { return a.score - b.score }).slice(1).slice(5);
+    output = output.sort((a, b) => { return a.score - b.score }).slice(n - 1).reverse();
     return JSON.stringify(output);
 å}
