@@ -1,0 +1,33 @@
+{
+  "name": "outline",
+  "version": "0.0.1",
+  "description": "Coding challenge for Outline Insurance Services.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --require babel-polyfill --require babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanbeeman-em/outline.git"
+  },
+  "author": "stefan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stefanbeeman-em/outline/issues"
+  },
+  "homepage": "https://github.com/stefanbeeman-em/outline#readme",
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "line-by-line": "^0.1.6",
+    "n-readlines": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "jest": "^24.1.0"
+  }
+}
