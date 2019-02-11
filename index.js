@@ -1,6 +1,7 @@
 const lineByLine = require('n-readlines')
+const program = require('commander')
 
-export default function sortScores(filename, n) {
+function sortScores(filename, n) {
     const scoreLines = new lineByLine(filename);
     let output = [];
     let scoreLine;
@@ -18,6 +19,18 @@ export default function sortScores(filename, n) {
             }
         }
     }
-    output = output.sort((a, b) => { return a.score - b.score }).slice(n - 1).reverse();
+    output = output.sort((a, b) => { return a.score - b.score }).slice(0, n).reverse();
     return JSON.stringify(output);
-å}
+}
+
+module.exports = { sortScores: sortScores };
+
+program
+    .version('0.1.0')
+    .arguments('[path] [n]')
+    .action((path, n) => {
+        const output = sortScores(path, n);
+        console.log(output);
+    });
+
+program.parse(process.argv);
